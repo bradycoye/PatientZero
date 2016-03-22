@@ -1,0 +1,6 @@
+framework module Pods_PatientZero {
+  umbrella header "Pods-PatientZero-umbrella.h"
+
+  export *
+  module * { export * }
+}

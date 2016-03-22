@@ -14,7 +14,7 @@
 		607583C61C9C88A200A513C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607583C51C9C88A200A513C5 /* Assets.xcassets */; };
 		607583C91C9C88A200A513C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607583C71C9C88A200A513C5 /* LaunchScreen.storyboard */; };
 		607583D41C9C88A200A513C5 /* PatientZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583D31C9C88A200A513C5 /* PatientZeroTests.swift */; };
-		FCF4220FCFD4350049FD6518 /* libPods-PatientZero.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A6411D6C15ED11EC7F7269 /* libPods-PatientZero.a */; };
+		887D33532094932ED42314EE /* Pods_PatientZero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +40,8 @@
 		607583D31C9C88A200A513C5 /* PatientZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientZeroTests.swift; sourceTree = "<group>"; };
 		607583D51C9C88A200A513C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		650D2A70056E7C73FFB5533F /* Pods-PatientZero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientZero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatientZero/Pods-PatientZero.debug.xcconfig"; sourceTree = "<group>"; };
+		BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatientZero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A07997E86B1FFBE3179C66 /* Pods-PatientZero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientZero.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatientZero/Pods-PatientZero.release.xcconfig"; sourceTree = "<group>"; };
-		F1A6411D6C15ED11EC7F7269 /* libPods-PatientZero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PatientZero.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF4220FCFD4350049FD6518 /* libPods-PatientZero.a in Frameworks */,
+				887D33532094932ED42314EE /* Pods_PatientZero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +109,7 @@
 		885E9755B174692ABEC4B92B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F1A6411D6C15ED11EC7F7269 /* libPods-PatientZero.a */,
+				BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
