@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6068B19D1CA1FF74005305C7 /* default in Resources */ = {isa = PBXBuildFile; fileRef = 6068B19C1CA1FF74005305C7 /* default */; };
 		607583BF1C9C88A100A513C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583BE1C9C88A100A513C5 /* AppDelegate.swift */; };
 		607583C11C9C88A100A513C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583C01C9C88A100A513C5 /* ViewController.swift */; };
 		607583C41C9C88A100A513C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607583C21C9C88A100A513C5 /* Main.storyboard */; };
@@ -28,7 +27,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6068B19C1CA1FF74005305C7 /* default */ = {isa = PBXFileReference; lastKnownFileType = folder; name = default; path = "../../../ios 2/default"; sourceTree = "<group>"; };
 		607583BB1C9C88A100A513C5 /* PatientZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatientZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607583BE1C9C88A100A513C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607583C01C9C88A100A513C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				607583C01C9C88A100A513C5 /* ViewController.swift */,
 				607583C21C9C88A100A513C5 /* Main.storyboard */,
 				607583C51C9C88A200A513C5 /* Assets.xcassets */,
-				6068B19C1CA1FF74005305C7 /* default */,
 				607583C71C9C88A200A513C5 /* LaunchScreen.storyboard */,
 				607583CA1C9C88A200A513C5 /* Info.plist */,
 			);
@@ -207,7 +204,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6068B19D1CA1FF74005305C7 /* default in Resources */,
 				607583C91C9C88A200A513C5 /* LaunchScreen.storyboard in Resources */,
 				607583C61C9C88A200A513C5 /* Assets.xcassets in Resources */,
 				607583C41C9C88A100A513C5 /* Main.storyboard in Resources */,
