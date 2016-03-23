@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6068B1A21CA20EA0005305C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068B1A11CA20EA0005305C7 /* CloudKit.framework */; };
 		607583BF1C9C88A100A513C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583BE1C9C88A100A513C5 /* AppDelegate.swift */; };
 		607583C11C9C88A100A513C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583C01C9C88A100A513C5 /* ViewController.swift */; };
 		607583C41C9C88A100A513C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607583C21C9C88A100A513C5 /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6068B1A01CA20E99005305C7 /* PatientZero.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PatientZero.entitlements; sourceTree = "<group>"; };
+		6068B1A11CA20EA0005305C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		607583BB1C9C88A100A513C5 /* PatientZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatientZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607583BE1C9C88A100A513C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607583C01C9C88A100A513C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				887D33532094932ED42314EE /* Pods_PatientZero.framework in Frameworks */,
+				6068B1A21CA20EA0005305C7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,7 @@
 		607583BD1C9C88A100A513C5 /* PatientZero */ = {
 			isa = PBXGroup;
 			children = (
+				6068B1A01CA20E99005305C7 /* PatientZero.entitlements */,
 				607583BE1C9C88A100A513C5 /* AppDelegate.swift */,
 				607583C01C9C88A100A513C5 /* ViewController.swift */,
 				607583C21C9C88A100A513C5 /* Main.storyboard */,
@@ -106,6 +111,7 @@
 		885E9755B174692ABEC4B92B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6068B1A11CA20EA0005305C7 /* CloudKit.framework */,
 				BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */,
 			);
 			name = Frameworks;
@@ -173,6 +179,12 @@
 				TargetAttributes = {
 					607583BA1C9C88A100A513C5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = Z5MHH9DC93;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					607583CE1C9C88A200A513C5 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -401,10 +413,14 @@
 			baseConfigurationReference = 650D2A70056E7C73FFB5533F /* Pods-PatientZero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PatientZero/PatientZero.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PatientZero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CatronSquad.PatientZero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -413,10 +429,14 @@
 			baseConfigurationReference = C8A07997E86B1FFBE3179C66 /* Pods-PatientZero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PatientZero/PatientZero.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PatientZero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CatronSquad.PatientZero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
