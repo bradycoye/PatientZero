@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		602E930D1CAC2C9E00D5AE8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */; };
+		602E930E1CAC2C9E00D5AE8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */; };
 		6068B1A21CA20EA0005305C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068B1A11CA20EA0005305C7 /* CloudKit.framework */; };
 		607583BF1C9C88A100A513C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583BE1C9C88A100A513C5 /* AppDelegate.swift */; };
 		607583C11C9C88A100A513C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583C01C9C88A100A513C5 /* ViewController.swift */; };
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6068B1A01CA20E99005305C7 /* PatientZero.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PatientZero.entitlements; sourceTree = "<group>"; };
 		6068B1A11CA20EA0005305C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		607583BB1C9C88A100A513C5 /* PatientZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatientZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,7 @@
 				607583C21C9C88A100A513C5 /* Main.storyboard */,
 				607583C51C9C88A200A513C5 /* Assets.xcassets */,
 				607583C71C9C88A200A513C5 /* LaunchScreen.storyboard */,
+				602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */,
 				607583CA1C9C88A200A513C5 /* Info.plist */,
 			);
 			path = PatientZero;
@@ -217,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607583C91C9C88A200A513C5 /* LaunchScreen.storyboard in Resources */,
+				602E930D1CAC2C9E00D5AE8F /* GoogleService-Info.plist in Resources */,
 				607583C61C9C88A200A513C5 /* Assets.xcassets in Resources */,
 				607583C41C9C88A100A513C5 /* Main.storyboard in Resources */,
 			);
@@ -226,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602E930E1CAC2C9E00D5AE8F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

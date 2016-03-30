@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import CloudKit
+import Google
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
@@ -17,8 +18,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager:CLLocationManager = CLLocationManager()
     let rootDatabase = Firebase(url:"https://popping-heat-5284.firebaseio.com")
     
+    
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+       // loginButton.center = self.view.center;
+       // [self.view addSubview:loginButton];
+        /*
+        let loginButton = FBSDKLoginButton()
+        loginButton.center = self.view.center
+        self.view.addSubview(loginButton)
+        loginButton.readPermissions = [["email", "public_profile", "user_friends"])
+        */
+        rootDatabase.authWithOAuthProvider("facebook", token: <#T##String!#>, withCompletionBlock: <#T##((NSError!, FAuthData!) -> Void)!##((NSError!, FAuthData!) -> Void)!##(NSError!, FAuthData!) -> Void#>)
+        
         
         var iCloudToken = ""
         
