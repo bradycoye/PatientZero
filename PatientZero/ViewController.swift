@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import CloudKit
-import Google
+import GoogleSignIn
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
@@ -19,27 +19,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let rootDatabase = Firebase(url:"https://popping-heat-5284.firebaseio.com")
     
     
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-       // loginButton.center = self.view.center;
-       // [self.view addSubview:loginButton];
-        /*
-        let loginButton = FBSDKLoginButton()
-        loginButton.center = self.view.center
-        self.view.addSubview(loginButton)
-        loginButton.readPermissions = [["email", "public_profile", "user_friends"])
-        */
-        rootDatabase.authWithOAuthProvider("facebook", token: <#T##String!#>, withCompletionBlock: <#T##((NSError!, FAuthData!) -> Void)!##((NSError!, FAuthData!) -> Void)!##(NSError!, FAuthData!) -> Void#>)
-        
-        
         var iCloudToken = ""
         
-        self.setupLocationManager()
-        self.setupTimeBackground()
         iCloudUserIDAsync() {
             recordID, error in
             if let userID = recordID?.recordName {
@@ -50,17 +34,54 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         /*
-        rootDatabase.authUser(iCloudToken, password: iCloudToken,
-            withCompletionBlock: { error, authData in
-                if error != nil {
-                     print(error)
-                } else {
-                    print("Successfully logged in")
-                }
-        })
-        */
+         rootDatabase.authUser(iCloudToken, password: iCloudToken,
+         withCompletionBlock: { error, authData in
+         if error != nil {
+         print(error)
+         } else {
+         print("Successfully logged in")
+         }
+         })
+         */
         
         
+        // Setup delegates
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        // Attempt to sign in silently, this will succeed if
+        // the user has recently been authenticated
+        GIDSignIn.sharedInstance().signInSilently()
+    }
+    // Wire up to a button tap
+    @IBAction func authenticateWithGoogle(sender: UIButton) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    func signOut() {
+        GIDSignIn.sharedInstance().signOut()
+        ref.unauth()
+    }
+    // Implement the required GIDSignInDelegate methods
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+            // Auth with Firebase
+            ref.authWithOAuthProvider("google", token: user.authentication.accessToken, withCompletionBlock: { (error, authData) in
+                // User is logged in!
+                self.setupLocationManager()
+                self.setupTimeBackground()
+                
+            })
+        } else {
+            // Don't assert this error it is commonly returned as nil
+            println("\(error.localizedDescription)")
+        }
+    }
+    // Implement the required GIDSignInDelegate methods
+    // Unauth when disconnected from Google
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+        ref.unauth();
     }
     
     override func didReceiveMemoryWarning() {
