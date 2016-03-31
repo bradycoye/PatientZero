@@ -7,29 +7,58 @@
 //
 
 import UIKit
-import Google
+import Firebase
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+    func application(application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Initialize sign-in
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        GIDSignIn.sharedInstance().delegate = self
         
         return true
     }
     
     func application(application: UIApplication,
-                     openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        
+                     openURL url: NSURL, options: [String: AnyObject]) -> Bool {
         return GIDSignIn.sharedInstance().handleURL(url,
-                                                    sourceApplication: sourceApplication,
-                                                    annotation: annotation)
+                                                    sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
+                                                    annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+    }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            
+            let ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
+            ref.authWithOAuthProvider("google", token: idToken, withCompletionBlock: { (error, authData) in
+            })
+            // ...
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
     
     func applicationDidBecomeActive(application: UIApplication) {

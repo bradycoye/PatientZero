@@ -7,21 +7,26 @@
 //
 
 import UIKit
-import Firebase
 import CoreLocation
 import CloudKit
-import GoogleSignIn
+import Firebase
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
-    
+class ViewController: UIViewController, CLLocationManagerDelegate, GIDSignInUIDelegate {
+
     var locationManager:CLLocationManager = CLLocationManager()
-    let rootDatabase = Firebase(url:"https://popping-heat-5284.firebaseio.com")
+    let ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
     
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GIDSignIn.sharedInstance().uiDelegate = self
+        signInButton.style = GIDSignInButtonStyle.Wide
+        
+        
+    
         var iCloudToken = ""
         
         iCloudUserIDAsync() {
@@ -43,51 +48,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
          }
          })
          */
-        
-        
-        // Setup delegates
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        // Attempt to sign in silently, this will succeed if
-        // the user has recently been authenticated
-        GIDSignIn.sharedInstance().signInSilently()
+
     }
-    // Wire up to a button tap
-    @IBAction func authenticateWithGoogle(sender: UIButton) {
-        GIDSignIn.sharedInstance().signIn()
-    }
-    
-    func signOut() {
-        GIDSignIn.sharedInstance().signOut()
-        ref.unauth()
-    }
-    // Implement the required GIDSignInDelegate methods
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
-        if (error == nil) {
-            // Auth with Firebase
-            ref.authWithOAuthProvider("google", token: user.authentication.accessToken, withCompletionBlock: { (error, authData) in
-                // User is logged in!
-                self.setupLocationManager()
-                self.setupTimeBackground()
-                
-            })
-        } else {
-            // Don't assert this error it is commonly returned as nil
-            println("\(error.localizedDescription)")
-        }
-    }
-    // Implement the required GIDSignInDelegate methods
-    // Unauth when disconnected from Google
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-                withError error: NSError!) {
-        ref.unauth();
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     func iCloudUserIDAsync(complete: (instance: CKRecordID?, error: NSError?) -> ()) {
         let container = CKContainer.defaultContainer()
@@ -105,7 +74,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func createUser(iCloudToken: String) {
-        rootDatabase.authAnonymouslyWithCompletionBlock() { error, authData in
+        ref.authAnonymouslyWithCompletionBlock() { error, authData in
             if error != nil {
                 print(error.localizedDescription)
             } else {
@@ -113,6 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
     
     func setupLocationManager() {
         

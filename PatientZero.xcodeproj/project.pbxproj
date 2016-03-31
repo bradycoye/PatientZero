@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9FCFDF1B875B103A2C44DF /* Pods_PatientZero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F281DE0A77FB0F5E81EF2544 /* Pods_PatientZero.framework */; };
 		602E930D1CAC2C9E00D5AE8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */; };
 		602E930E1CAC2C9E00D5AE8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */; };
+		602E93121CAC521C00D5AE8F /* Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 602E93111CAC521C00D5AE8F /* Bridging-Header.m */; };
 		6068B1A21CA20EA0005305C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6068B1A11CA20EA0005305C7 /* CloudKit.framework */; };
 		607583BF1C9C88A100A513C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583BE1C9C88A100A513C5 /* AppDelegate.swift */; };
 		607583C11C9C88A100A513C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583C01C9C88A100A513C5 /* ViewController.swift */; };
@@ -16,7 +18,6 @@
 		607583C61C9C88A200A513C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607583C51C9C88A200A513C5 /* Assets.xcassets */; };
 		607583C91C9C88A200A513C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607583C71C9C88A200A513C5 /* LaunchScreen.storyboard */; };
 		607583D41C9C88A200A513C5 /* PatientZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583D31C9C88A200A513C5 /* PatientZeroTests.swift */; };
-		887D33532094932ED42314EE /* Pods_PatientZero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		602E930C1CAC2C9E00D5AE8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		602E93101CAC521C00D5AE8F /* PatientZero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PatientZero-Bridging-Header.h"; sourceTree = "<group>"; };
+		602E93111CAC521C00D5AE8F /* Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bridging-Header.m"; sourceTree = "<group>"; };
 		6068B1A01CA20E99005305C7 /* PatientZero.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PatientZero.entitlements; sourceTree = "<group>"; };
 		6068B1A11CA20EA0005305C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		607583BB1C9C88A100A513C5 /* PatientZero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatientZero.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,8 +47,8 @@
 		607583D31C9C88A200A513C5 /* PatientZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientZeroTests.swift; sourceTree = "<group>"; };
 		607583D51C9C88A200A513C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		650D2A70056E7C73FFB5533F /* Pods-PatientZero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientZero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatientZero/Pods-PatientZero.debug.xcconfig"; sourceTree = "<group>"; };
-		BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatientZero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A07997E86B1FFBE3179C66 /* Pods-PatientZero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientZero.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatientZero/Pods-PatientZero.release.xcconfig"; sourceTree = "<group>"; };
+		F281DE0A77FB0F5E81EF2544 /* Pods_PatientZero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatientZero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				887D33532094932ED42314EE /* Pods_PatientZero.framework in Frameworks */,
 				6068B1A21CA20EA0005305C7 /* CloudKit.framework in Frameworks */,
+				5B9FCFDF1B875B103A2C44DF /* Pods_PatientZero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,11 +74,13 @@
 		607583B21C9C88A100A513C5 = {
 			isa = PBXGroup;
 			children = (
+				602E93111CAC521C00D5AE8F /* Bridging-Header.m */,
 				607583BD1C9C88A100A513C5 /* PatientZero */,
 				607583D21C9C88A200A513C5 /* PatientZeroTests */,
 				607583BC1C9C88A100A513C5 /* Products */,
 				9B49106B374BA3A76784D0C3 /* Pods */,
 				885E9755B174692ABEC4B92B /* Frameworks */,
+				602E93101CAC521C00D5AE8F /* PatientZero-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				6068B1A11CA20EA0005305C7 /* CloudKit.framework */,
-				BB5FF010D4C7BF39FFF5431F /* Pods_PatientZero.framework */,
+				F281DE0A77FB0F5E81EF2544 /* Pods_PatientZero.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,7 +182,7 @@
 		607583B31C9C88A100A513C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = DaemonDevelopment;
 				TargetAttributes = {
@@ -292,6 +297,7 @@
 			files = (
 				607583C11C9C88A100A513C5 /* ViewController.swift in Sources */,
 				607583BF1C9C88A100A513C5 /* AppDelegate.swift in Sources */,
+				602E93121CAC521C00D5AE8F /* Bridging-Header.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +425,7 @@
 			baseConfigurationReference = 650D2A70056E7C73FFB5533F /* Pods-PatientZero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PatientZero/PatientZero.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -427,6 +434,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.CatronSquad.PatientZero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PatientZero-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -435,6 +444,7 @@
 			baseConfigurationReference = C8A07997E86B1FFBE3179C66 /* Pods-PatientZero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PatientZero/PatientZero.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -443,6 +453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.CatronSquad.PatientZero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PatientZero-Bridging-Header.h";
 			};
 			name = Release;
 		};
