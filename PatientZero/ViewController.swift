@@ -40,28 +40,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 // No user is signed in
             }
         })
-
-        var iCloudToken = ""
-        
-        iCloudUserIDAsync() {
-            recordID, error in
-            if let userID = recordID?.recordName {
-                print("received iCloudID \(userID)")
-                self.createUser(userID)
-            } else {
-                print("Fetched iCloudID was nil")
-            }
-        }
-        /*
-         rootDatabase.authUser(iCloudToken, password: iCloudToken,
-         withCompletionBlock: { error, authData in
-         if error != nil {
-         print(error)
-         } else {
-         print("Successfully logged in")
-         }
-         })
-         */
     }
     
     
@@ -90,6 +68,15 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
            
             ref.authWithOAuthProvider("google", token: user.authentication.accessToken, withCompletionBlock: { (error, authData) in
                 // User is logged in!
+                let newUser = [
+                    "provider": authData.provider,
+                    "displayName": authData.providerData["displayName"] as? NSString as? String
+                ]
+                // Create a child path with a key set to the uid underneath the "users" node
+                // This creates a URL path like the following:
+                //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
+                self.ref.childByAppendingPath("users")
+                    .childByAppendingPath(authData.uid).setValue(newUser)
             })
             print("authenticated")
             
@@ -127,17 +114,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             }
         }
     }
-    
-    func createUser(iCloudToken: String) {
-        ref.authAnonymouslyWithCompletionBlock() { error, authData in
-            if error != nil {
-                print(error.localizedDescription)
-            } else {
-                print(authData)
-            }
-        }
-    }
-    
 }
 
 
