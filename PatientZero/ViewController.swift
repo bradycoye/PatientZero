@@ -12,21 +12,35 @@ import CloudKit
 import Firebase
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GIDSignInUIDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+    
+   
+    var ref: Firebase!
+    
+    @IBAction func signInButton(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signIn()
+    }
 
-    var locationManager:CLLocationManager = CLLocationManager()
-    let ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
-    
-    @IBOutlet weak var signInButton: GIDSignInButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
         GIDSignIn.sharedInstance().uiDelegate = self
-        signInButton.style = GIDSignInButtonStyle.Wide
+        GIDSignIn.sharedInstance().delegate = self
+       
+        
+        GIDSignIn.sharedInstance().signInSilently()
         
         
-    
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOFReceivedNotication:", name:"Authenticated", object: nil)
+        ref.observeAuthEventWithBlock({ authData in
+            if authData != nil {
+                NSNotificationCenter.defaultCenter().postNotificationName("Authenticated", object: nil)
+                print(authData)
+            } else {
+                // No user is signed in
+            }
+        })
+
         var iCloudToken = ""
         
         iCloudUserIDAsync() {
@@ -48,15 +62,56 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GIDSignInUIDe
          }
          })
          */
-
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "profileViewController"
+        {
+            if let destinationVC = segue.destinationViewController as? ProfileViewController {
+               // destinationVC.numberToDisplay = counter
+            }
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("viewLOADED")
+    }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+           
+            ref.authWithOAuthProvider("google", token: user.authentication.accessToken, withCompletionBlock: { (error, authData) in
+                // User is logged in!
+            })
+            print("authenticated")
+            
+            // ...
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+        ref.unauth()
+    }
+    
+    func signOut() {
+        GIDSignIn.sharedInstance().signOut()
+        ref.unauth()
+    }
+    
+    func methodOFReceivedNotication(notification: NSNotification){
+        self.performSegueWithIdentifier("profileViewController", sender: self)
+    }
     
     func iCloudUserIDAsync(complete: (instance: CKRecordID?, error: NSError?) -> ()) {
         let container = CKContainer.defaultContainer()
@@ -67,7 +122,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GIDSignInUIDe
                 complete(instance: nil, error: error)
             } else {
                 print("fetched ID \(recordID?.recordName)")
-            
+                
                 complete(instance: recordID, error: nil)
             }
         }
@@ -82,61 +137,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GIDSignInUIDe
             }
         }
     }
-    
-    
-    func setupLocationManager() {
-        
-        // Set locationManager delegate as self
-        self.locationManager.delegate = self
-        
-        // Set for the best location accuracy (tradeoff: uses more battery)
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        // Get permission to access users location
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        // Start updating users location
-        self.locationManager.startUpdatingLocation()
-    }
-    
-    func setupTimeBackground() {
-        
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        
-        let mphMultiple = 2.23693629
-        
-
-        var coordinate = newLocation.coordinate
-        var latitude = coordinate.latitude
-        var longitude = coordinate.longitude
-        
-        let date = NSDate()
-        var dataFormatter = NSDateFormatter()
-        dataFormatter.dateFormat = "dd-mm-yyyy HH:mm:ss"
-        let dateString = dataFormatter.stringFromDate(date)
-      
-
-        var rootDatabase = Firebase(url:"https://popping-heat-5284.firebaseapp.com")
-        
-        let location = rootDatabase.childByAppendingPath(dateString)
-        
-        var currentLocation = [latitude: longitude]
-        rootDatabase.setValue(currentLocation)
-        manager.stopUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedAlways {
-            if CLLocationManager.isMonitoringAvailableForClass(CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    // do stuff
-                }
-            }
-        }
-    }
-    
     
 }
 

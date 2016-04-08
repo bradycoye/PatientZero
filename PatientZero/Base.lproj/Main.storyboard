@@ -17,26 +17,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnS-A0-okF" customClass="GIDSignInButton">
-                                <rect key="frame" x="86" y="228" width="428" height="143"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xw-0k-tqz">
+                                <rect key="frame" x="256" y="285" width="88" height="30"/>
+                                <state key="normal" title="Authenticate"/>
+                                <connections>
+                                    <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hea-pk-df9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DnS-A0-okF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-0.5" id="Caa-oB-Q6w"/>
-                            <constraint firstItem="DnS-A0-okF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="86" id="G1l-cJ-bjb"/>
-                            <constraint firstItem="DnS-A0-okF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="208" id="QRX-1y-aDM"/>
-                            <constraint firstItem="DnS-A0-okF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xzA-cG-5Rs"/>
+                            <constraint firstItem="7Xw-0k-tqz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DGu-Ty-bwU"/>
+                            <constraint firstItem="7Xw-0k-tqz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="et4-Or-0k3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="signInButton" destination="DnS-A0-okF" id="GVG-vq-9Mz"/>
+                        <segue destination="sLw-g3-XEJ" kind="show" identifier="profileViewController" id="w0f-qG-Wp5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="310"/>
+            <point key="canvasLocation" x="246" y="310"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="oh5-tH-XkV">
+            <objects>
+                <viewController id="sLw-g3-XEJ" customClass="ProfileViewController" customModule="PatientZero" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Urz-4e-njc"/>
+                        <viewControllerLayoutGuide type="bottom" id="DEX-aR-wAX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HE3-OX-ZRB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProfileView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-IL-Ibu">
+                                <rect key="frame" x="236" y="223" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fJZ-IL-Ibu" firstAttribute="leading" secondItem="HE3-OX-ZRB" secondAttribute="leading" constant="236" id="6uc-ns-mqT"/>
+                            <constraint firstItem="fJZ-IL-Ibu" firstAttribute="top" secondItem="Urz-4e-njc" secondAttribute="bottom" constant="203" id="ykG-sO-nEB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjP-cU-eLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925" y="310"/>
         </scene>
     </scenes>
 </document>
