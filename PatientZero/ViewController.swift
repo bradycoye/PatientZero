@@ -16,6 +16,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
    
     var ref: Firebase!
+    var userID = ""
     
     @IBAction func signInButton(sender: AnyObject) {
         GIDSignIn.sharedInstance().signIn()
@@ -53,7 +54,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         if segue.identifier == "profileViewController"
         {
             if let destinationVC = segue.destinationViewController as? ProfileViewController {
-               // destinationVC.numberToDisplay = counter
+               destinationVC.userID = self.userID
             }
         }
     }
@@ -68,6 +69,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
            
             ref.authWithOAuthProvider("google", token: user.authentication.accessToken, withCompletionBlock: { (error, authData) in
                 // User is logged in!
+                
+                self.userID = authData.uid
+                
                 let newUser = [
                     "provider": authData.provider,
                     "displayName": authData.providerData["displayName"] as? NSString as? String

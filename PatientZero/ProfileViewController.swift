@@ -14,18 +14,16 @@ import Firebase
 
 class ProfileViewController: UIViewController, CLLocationManagerDelegate {
     
-    var locationManager:CLLocationManager = CLLocationManager()
+    var locationManager: CLLocationManager!
     let ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
+    var userID = "none"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref.observeAuthEventWithBlock { (authData) in
-            if let authToken = authData {
-                print(authData)
-            }
-            
-        }
+        locationManager = CLLocationManager()
+        self.setupLocationManager()
+        print(userID)
         
     }
     
@@ -56,7 +54,7 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
         
         
         var coordinate = newLocation.coordinate
-        var latitude = coordinate.latitude
+        var latitude = coordinate.latitude 
         var longitude = coordinate.longitude
         
         let date = NSDate()
@@ -66,11 +64,26 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
         
         
         var rootDatabase = Firebase(url:"https://popping-heat-5284.firebaseapp.com")
+       
+
         
-        let location = rootDatabase.childByAppendingPath(dateString)
-        
-        var currentLocation = [latitude: longitude]
-        rootDatabase.setValue(currentLocation)
+        let currentLocation = [
+            "latitude": latitude,
+            "longitude": longitude
+        ]
+        let instance = [dateString: currentLocation]
+        let locations = ["locations": instance]
+        self.ref.childByAppendingPath("users").childByAppendingPath("google:107339086243528089693").updateChildValues(locations)
+
+        //self.ref.childByAppendingPath("users").childByAppendingPath(userID).childByAppendingPath("location").setValue(dateString)
+           
+         //self.ref.childByAppendingPath("users").childByAppendingPath(userID).childByAppendingPath("location").childByAppendingPath(dateString).setValue(currentLocation)
+        print(userID)
+        print(userID)
+        print(userID)
+        print(dateString)
+        print(currentLocation)
+        //rootDatabase.setValue(currentLocation)
         manager.stopUpdatingLocation()
     }
     
