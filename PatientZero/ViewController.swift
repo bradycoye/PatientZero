@@ -1,14 +1,5 @@
-//
-//  ViewController.swift
-//  PatientZero
-//
-//  Created by Brady Coye on 3/18/16.
-//  Copyright © 2016 DaemonDevelopment. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
-import CloudKit
 import Firebase
 
 
@@ -33,6 +24,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOFReceivedNotication:", name:"Authenticated", object: nil)
+        
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 NSNotificationCenter.defaultCenter().postNotificationName("Authenticated", object: nil)
@@ -43,13 +35,11 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         })
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "profileViewController"
         {
@@ -84,7 +74,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             })
             print("authenticated")
             
-            // ...
         } else {
             print("\(error.localizedDescription)")
         }
@@ -103,21 +92,4 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     func methodOFReceivedNotication(notification: NSNotification){
         self.performSegueWithIdentifier("profileViewController", sender: self)
     }
-    
-    func iCloudUserIDAsync(complete: (instance: CKRecordID?, error: NSError?) -> ()) {
-        let container = CKContainer.defaultContainer()
-        container.fetchUserRecordIDWithCompletionHandler() {
-            recordID, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                complete(instance: nil, error: error)
-            } else {
-                print("fetched ID \(recordID?.recordName)")
-                
-                complete(instance: recordID, error: nil)
-            }
-        }
-    }
 }
-
-
