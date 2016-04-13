@@ -1,16 +1,6 @@
-//
-//  ViewController.swift
-//  PatientZero
-//
-//  Created by Brady Coye on 3/18/16.
-//  Copyright © 2016 DaemonDevelopment. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
-import CloudKit
 import Firebase
-
 
 class ProfileViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -24,13 +14,6 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         self.setupLocationManager()
         print(userID)
-        
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupLocationManager() {
@@ -50,22 +33,15 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
         
-        let mphMultiple = 2.23693629
-        
-        
-        var coordinate = newLocation.coordinate
-        var latitude = coordinate.latitude 
-        var longitude = coordinate.longitude
+        let coordinate = newLocation.coordinate
+        let latitude = coordinate.latitude
+        let longitude = coordinate.longitude
         
         let date = NSDate()
-        var dataFormatter = NSDateFormatter()
+        let dataFormatter = NSDateFormatter()
         dataFormatter.dateFormat = "dd-mm-yyyy HH:mm:ss"
+        
         let dateString = dataFormatter.stringFromDate(date)
-        
-        
-        var rootDatabase = Firebase(url:"https://popping-heat-5284.firebaseapp.com")
-       
-
         
         let currentLocation = [
             "latitude": latitude,
@@ -73,17 +49,14 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
         ]
         let instance = [dateString: currentLocation]
         let locations = ["locations": instance]
+        
+        // TODO: change string to user variable
         self.ref.childByAppendingPath("users").childByAppendingPath("google:107339086243528089693").updateChildValues(locations)
 
-        //self.ref.childByAppendingPath("users").childByAppendingPath(userID).childByAppendingPath("location").setValue(dateString)
-           
-         //self.ref.childByAppendingPath("users").childByAppendingPath(userID).childByAppendingPath("location").childByAppendingPath(dateString).setValue(currentLocation)
-        print(userID)
-        print(userID)
         print(userID)
         print(dateString)
         print(currentLocation)
-        //rootDatabase.setValue(currentLocation)
+    
         manager.stopUpdatingLocation()
     }
     
@@ -96,8 +69,6 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    
-    
 }
 
 

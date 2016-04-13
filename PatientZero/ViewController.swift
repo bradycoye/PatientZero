@@ -45,10 +45,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        print("viewLOADED")
-    }
-    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if (error == nil) {
@@ -62,9 +58,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                     "provider": authData.provider,
                     "displayName": authData.providerData["displayName"] as? NSString as? String
                 ]
-                // Create a child path with a key set to the uid underneath the "users" node
-                // This creates a URL path like the following:
-                //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
+
                 self.ref.childByAppendingPath("users")
                     .childByAppendingPath(authData.uid).setValue(newUser)
             })
