@@ -35,11 +35,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         })
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "profileViewController"
         {
@@ -93,3 +89,4 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         self.performSegueWithIdentifier("profileViewController", sender: self)
     }
 }
+
