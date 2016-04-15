@@ -17,18 +17,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signInButtonBig" translatesAutoresizingMaskIntoConstraints="NO" id="n7G-ym-nmg">
+                                <rect key="frame" x="220" y="448" width="160" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="wWI-bI-uc8"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xw-0k-tqz">
-                                <rect key="frame" x="256" y="285" width="88" height="30"/>
-                                <state key="normal" title="Authenticate"/>
+                                <rect key="frame" x="273" y="467" width="92" height="30"/>
+                                <state key="normal" title="Authenticate "/>
                                 <connections>
                                     <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hea-pk-df9"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Zombiee" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-ui-cos">
+                                <rect key="frame" x="132" y="20" width="336" height="312"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="336" id="l3z-HU-Ayn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Zero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-3d-Nph">
+                                <rect key="frame" x="108" y="346" width="384" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="5wl-cp-UKA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="70"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.74901960784313726" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7Xw-0k-tqz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DGu-Ty-bwU"/>
-                            <constraint firstItem="7Xw-0k-tqz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="et4-Or-0k3"/>
+                            <constraint firstItem="hdH-ui-cos" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4dF-lk-2dW"/>
+                            <constraint firstItem="hdH-ui-cos" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BSl-Cs-fZ0"/>
+                            <constraint firstItem="bdx-3d-Nph" firstAttribute="top" secondItem="hdH-ui-cos" secondAttribute="bottom" constant="14" id="Ehy-VR-wzt"/>
+                            <constraint firstItem="hdH-ui-cos" firstAttribute="centerX" secondItem="bdx-3d-Nph" secondAttribute="centerX" id="KlW-hE-leg"/>
+                            <constraint firstItem="bdx-3d-Nph" firstAttribute="centerX" secondItem="n7G-ym-nmg" secondAttribute="centerX" id="O5n-HU-3RB"/>
+                            <constraint firstItem="n7G-ym-nmg" firstAttribute="top" secondItem="bdx-3d-Nph" secondAttribute="bottom" constant="16" id="QaX-rm-NgD"/>
+                            <constraint firstItem="7Xw-0k-tqz" firstAttribute="top" secondItem="n7G-ym-nmg" secondAttribute="bottom" constant="-48" id="cq8-hR-b6p"/>
+                            <constraint firstItem="n7G-ym-nmg" firstAttribute="centerY" secondItem="7Xw-0k-tqz" secondAttribute="centerY" id="cul-PF-9Hn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n7G-ym-nmg" secondAttribute="bottom" constant="85" id="tkE-eH-2XU"/>
+                            <constraint firstItem="7Xw-0k-tqz" firstAttribute="leading" secondItem="n7G-ym-nmg" secondAttribute="trailing" constant="-107" id="vEV-Rn-zLD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -70,4 +99,8 @@
             <point key="canvasLocation" x="925" y="310"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Zombiee" width="639" height="958"/>
+        <image name="signInButtonBig" width="327" height="138"/>
+    </resources>
 </document>
