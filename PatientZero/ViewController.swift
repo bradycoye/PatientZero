@@ -17,7 +17,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         super.viewDidLoad()
         ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
         
-        //self.view.backgroundColor = UIColor(red: 254.0, green: 191.0, blue: 26.0, alpha: 1.0)
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
@@ -83,7 +82,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     }
     
     func methodOFReceivedNotication(notification: NSNotification){
-        //self.performSegueWithIdentifier("profileViewController", sender: self)
+        self.performSegueWithIdentifier("profileViewController", sender: self)
     }
 }
 

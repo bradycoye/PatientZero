@@ -61,14 +61,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="sLw-g3-XEJ" kind="show" identifier="profileViewController" id="w0f-qG-Wp5"/>
+                        <segue destination="Wci-Qw-Y6U" kind="show" identifier="profileViewController" id="TKL-Lz-geA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="246" y="310"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="oh5-tH-XkV">
             <objects>
                 <viewController id="sLw-g3-XEJ" customClass="ProfileViewController" customModule="PatientZero" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,14 +93,55 @@
                             <constraint firstItem="fJZ-IL-Ibu" firstAttribute="top" secondItem="Urz-4e-njc" secondAttribute="bottom" constant="203" id="ykG-sO-nEB"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="icon-authors" id="VIo-pD-sNI"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjP-cU-eLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="925" y="310"/>
+            <point key="canvasLocation" x="1465" y="542"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="Lcr-aW-67d">
+            <objects>
+                <viewController id="gpN-kf-lba" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Ol-af-kGd"/>
+                        <viewControllerLayoutGuide type="bottom" id="8we-KQ-Fn3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Osc-hF-8uq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="icon-cover" id="WbP-Mo-Aa7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rbf-Xo-Gx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1484" y="1319"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yxm-g4-p5d">
+            <objects>
+                <tabBarController id="Wci-Qw-Y6U" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Tgo-f8-W9U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gpN-kf-lba" kind="relationship" relationship="viewControllers" id="K3D-01-5nj"/>
+                        <segue destination="sLw-g3-XEJ" kind="relationship" relationship="viewControllers" id="O2h-p0-RlD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XGV-YT-ow8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="1183"/>
         </scene>
     </scenes>
     <resources>
         <image name="Zombiee" width="639" height="958"/>
+        <image name="icon-authors" width="30" height="30"/>
+        <image name="icon-cover" width="30" height="30"/>
         <image name="signInButtonBig" width="327" height="138"/>
     </resources>
 </document>

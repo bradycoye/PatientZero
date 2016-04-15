@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
         
         locationManager = CLLocationManager()
         self.setupLocationManager()
+        
         print(userID)
     }
     
