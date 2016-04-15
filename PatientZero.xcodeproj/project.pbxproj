@@ -21,6 +21,7 @@
 		607583D41C9C88A200A513C5 /* PatientZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607583D31C9C88A200A513C5 /* PatientZeroTests.swift */; };
 		60B7D83A1CC0589800D0844B /* Zombiee.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B7D8391CC0589800D0844B /* Zombiee.png */; };
 		60B7D83C1CC0594000D0844B /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 60B7D83B1CC0594000D0844B /* ios */; };
+		60FEB7591CC06F7A0052D891 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FEB7581CC06F7A0052D891 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		607583D51C9C88A200A513C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60B7D8391CC0589800D0844B /* Zombiee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zombiee.png; path = ../../../Sketch/Zombiee.png; sourceTree = "<group>"; };
 		60B7D83B1CC0594000D0844B /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = ../../../../Downloads/google_signin_buttons/ios; sourceTree = "<group>"; };
+		60FEB7581CC06F7A0052D891 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		650D2A70056E7C73FFB5533F /* Pods-PatientZero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientZero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatientZero/Pods-PatientZero.debug.xcconfig"; sourceTree = "<group>"; };
 		C8A07997E86B1FFBE3179C66 /* Pods-PatientZero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatientZero.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatientZero/Pods-PatientZero.release.xcconfig"; sourceTree = "<group>"; };
 		F281DE0A77FB0F5E81EF2544 /* Pods_PatientZero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatientZero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 				607583BE1C9C88A100A513C5 /* AppDelegate.swift */,
 				607583C01C9C88A100A513C5 /* ViewController.swift */,
 				6056EFD51CB73849000157EB /* ProfileViewController.swift */,
+				60FEB7581CC06F7A0052D891 /* MapViewController.swift */,
 				607583C21C9C88A100A513C5 /* Main.storyboard */,
 				60B7D8391CC0589800D0844B /* Zombiee.png */,
 				607583C51C9C88A200A513C5 /* Assets.xcassets */,
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607583C11C9C88A100A513C5 /* ViewController.swift in Sources */,
+				60FEB7591CC06F7A0052D891 /* MapViewController.swift in Sources */,
 				607583BF1C9C88A100A513C5 /* AppDelegate.swift in Sources */,
 				6056EFD61CB73849000157EB /* ProfileViewController.swift in Sources */,
 				602E93121CAC521C00D5AE8F /* Bridging-Header.m in Sources */,
