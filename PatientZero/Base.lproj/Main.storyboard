@@ -81,25 +81,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProfileView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-IL-Ibu">
-                                <rect key="frame" x="236" y="223" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIy-qH-20a">
+                                <rect key="frame" x="91" y="128" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEv-Pc-zn9">
+                                <rect key="frame" x="124" y="276" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gab-ZN-sax">
+                                <rect key="frame" x="364" y="276" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z9J-kl-vhI">
+                                <rect key="frame" x="0.0" y="305" width="600" height="246"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gWm-yO-VaM" userLabel="nameField">
+                                <rect key="frame" x="284" y="124" width="238" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fJZ-IL-Ibu" firstAttribute="leading" secondItem="HE3-OX-ZRB" secondAttribute="leading" constant="236" id="6uc-ns-mqT"/>
-                            <constraint firstItem="fJZ-IL-Ibu" firstAttribute="top" secondItem="Urz-4e-njc" secondAttribute="bottom" constant="203" id="ykG-sO-nEB"/>
+                            <constraint firstItem="DEX-aR-wAX" firstAttribute="top" secondItem="Z9J-kl-vhI" secondAttribute="bottom" id="Fjd-g5-IM0"/>
+                            <constraint firstItem="Z9J-kl-vhI" firstAttribute="leading" secondItem="HE3-OX-ZRB" secondAttribute="leadingMargin" id="QeU-gs-5Tl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z9J-kl-vhI" secondAttribute="trailing" id="pVH-7k-rLS"/>
+                            <constraint firstItem="Z9J-kl-vhI" firstAttribute="top" secondItem="Urz-4e-njc" secondAttribute="bottom" constant="285" id="rRu-Pe-jZl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="icon-authors" id="VIo-pD-sNI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nameField" destination="gWm-yO-VaM" id="wJ1-iF-75C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjP-cU-eLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1467" y="486"/>
+            <point key="canvasLocation" x="1493" y="490"/>
         </scene>
         <!--Map-->
         <scene sceneID="Lcr-aW-67d">

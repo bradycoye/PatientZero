@@ -8,6 +8,7 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
     let ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
     var userID = "none"
     
+    @IBOutlet weak var nameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -15,6 +16,7 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
         self.setupLocationManager()
         
         print(userID)
+        self.nameField.text = "Brady Coye"
     }
     
     func setupLocationManager() {
