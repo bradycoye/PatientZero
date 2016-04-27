@@ -6,7 +6,7 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate, UITabl
     
     var locationManager: CLLocationManager!
     let ref = Firebase(url:"https://popping-heat-5284.firebaseio.com")
-    var userID = "none"
+    var userID = String()
     
     // These strings will be the data for the table view cells
     //let locations: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
@@ -27,6 +27,8 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(userID)
+        print("userID")
         locationManager = CLLocationManager()
         self.setupLocationManager()
         
@@ -39,6 +41,8 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate, UITabl
         
         // register UITableViewCell for reuse
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        
     
     }
     
@@ -63,11 +67,14 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate, UITabl
         
         // Start updating users location
         self.locationManager.startUpdatingLocation()
-        self.locationManager.startMonitoringSignificantLocationChanges()
+        self.locationManager.pausesLocationUpdatesAutomatically = false
+        self.locationManager.allowsBackgroundLocationUpdates = true
+        
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
         
+    
         let coordinate = newLocation.coordinate
         let latitude = coordinate.latitude
         let longitude = coordinate.longitude
@@ -98,21 +105,24 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate, UITabl
             if newLocation.distanceFromLocation(oldLocation) > 30 {
                 locationsTableValues.append("\(latitude)  \(longitude)")
                 
-                self.ref.childByAppendingPath("users").childByAppendingPath("google:107339086243528089693").childByAppendingPath("locations").updateChildValues(instance)
+            self.ref.childByAppendingPath("users").childByAppendingPath(userID).childByAppendingPath("locations").updateChildValues(instance)
+                print("updated location to firebase")
             }
         }
         
         guard let firstlocation = oldLocation else {
             locationsTableValues.append("\(latitude)  \(longitude)")
+            print(currentLocation)
+            print ("first")
             return
         }
         
         // TODO: change string to user variable
        
 
-        print(userID)
-        print(dateString)
-        print(currentLocation)
+        //print(userID)
+        //print(dateString)
+        //print(currentLocation)
         
         
         

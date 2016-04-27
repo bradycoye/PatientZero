@@ -30,6 +30,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
+                
+                self.userID = authData.uid
+        
                 NSNotificationCenter.defaultCenter().postNotificationName("Authenticated", object: nil)
                 print(authData)
             } else {
@@ -42,8 +45,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "profileViewController"
         {
-            if let destinationVC = segue.destinationViewController as? ProfileViewController {
-               destinationVC.userID = self.userID
+            if let destinationVC = segue.destinationViewController as? UITabBarController {
+                let profileViewController = destinationVC.viewControllers![1] as? ProfileViewController
+                profileViewController!.userID = self.userID
             }
         }
     }

@@ -2,6 +2,36 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PatientZero/Locations/HippHall.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/PlylerLibrary.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/Riley.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/Infirmiry.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/FurmanHall.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/Library.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/Trone.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/DH.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/BuildingC.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:PatientZero/Locations/JohnsHall.gpx">
+   </FileRef>
+   <FileRef
       location = "group:PatientZero.xcodeproj">
    </FileRef>
    <FileRef
