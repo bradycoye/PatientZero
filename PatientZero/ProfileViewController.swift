@@ -68,7 +68,11 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate, UITabl
         // Start updating users location
         self.locationManager.startUpdatingLocation()
         self.locationManager.pausesLocationUpdatesAutomatically = false
-        self.locationManager.allowsBackgroundLocationUpdates = true
+        if #available(iOS 9.0, *) {
+            self.locationManager.allowsBackgroundLocationUpdates = true
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     
